@@ -1,37 +1,41 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
-import {ROUTES} from '../../helpers/routes';
-import {HomeView} from '../../views/HomeView';
-import {AddTravelView} from '../../views/AddTravelView';
-import {MyTravelsView} from '../../views/MyTravelsView';
-import {TravelPlansView} from '../../views/TravelPlansView';
-import {AddTravelIcon, MyTravelsIcon, TravelPlansIcon} from './NavbarIcons';
-import {NavbarLink} from './NavbarLink';
-
+import { Switch, Route } from 'react-router-dom';
+import { ROUTES } from '../../helpers/routes';
+import { HomeView } from '../../views/HomeView';
+import { AddTravelView } from '../../views/AddTravelView';
+import { MyTravelsView } from '../../views/MyTravelsView';
+import { TravelPlansView } from '../../views/TravelPlansView';
+import { AppLogo } from '../AppLogo/AppLogo';
+import { NavbarLink } from './NavbarLink';
+import { home } from 'react-icons-kit/fa/home';
+import { calendarPlusO } from 'react-icons-kit/fa/calendarPlusO';
+import { ic_airplanemode_active } from 'react-icons-kit/md/ic_airplanemode_active';
+import { calendar } from 'react-icons-kit/fa/calendar'
 import './Navbar.css';
 
 export const Navbar = () => {
     return (
         <>
             <div className={"navbar"}>
-                <NavbarLink 
+                <AppLogo />
+                <NavbarLink
                     path={ROUTES.HOME}
-                    icon={<AddTravelIcon />}
+                    icon={home}
                     title={'Home'}
                 />
                 <NavbarLink
-                    path={ROUTES.ADD_TRAVEL}
-                    icon={<AddTravelIcon />}
-                    title={'Add Travel'}
-                />
-                <NavbarLink
                     path={ROUTES.MY_TRAVELS}
-                    icon={<MyTravelsIcon />}
+                    icon={ic_airplanemode_active}
                     title={'My Travels'}
                 />
                 <NavbarLink
+                    path={ROUTES.ADD_TRAVEL}
+                    icon={calendarPlusO}
+                    title={'Add Travel'}
+                />
+                <NavbarLink
                     path={ROUTES.TRAVEL_PLANS}
-                    icon={<TravelPlansIcon />}
+                    icon={calendar}
                     title={'Travel Plans'}
                 />
             </div>
