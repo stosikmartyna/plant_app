@@ -1,7 +1,12 @@
 import React from 'react';
+import {PageHeader} from '../components/PageHeader/PageHeader';
+import {AddTravelForm} from '../components/AddTravelForm/AddTravelFrom';
 
 export const AddTravelView = () => {
   return (
-    <h1>add travel view</h1>
+    <>
+      <PageHeader title={'Tell us, where have you been?'} />
+      <AddTravelForm />
+    </>
   );
 }
