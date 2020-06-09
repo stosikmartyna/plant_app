@@ -1,5 +1,4 @@
 import React from 'react';
-import {colors} from '../../helpers/colors';
 
 export const AppLogo = () => {
     return (
@@ -24,8 +23,9 @@ const appLogoImgStyle = {
 }
 
 const appNameStyle = {
-    color: colors.swissChocolate,
-    fontSize: '1rem',
-    letterSpacing: '.2rem',
+    fontFamily: 'ShadowsIntoLightTwo',
+    fontSize: '1.5rem',
+    fontWeight: 'lighter',
+    letterSpacing: '.1rem',
     margin: '0',
 }

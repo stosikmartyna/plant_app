@@ -1,13 +1,21 @@
 import React from 'react';
-import { FlexContainer } from './Containers';
+import { Row } from './Containers';
+import { colors } from '../../helpers/colors';
 
 export const InputText = (props) => {
     const labelStyle = {
+        color: colors.icelandicSky,
         display: 'block',
     }
 
     const inputStyle = {
+        backgroundColor: colors.scottishSky,
+        border: 'none',
+        borderRadius: '3px 3px 0px 0px',
+        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         marginRight: '1.5rem',
+        padding: '.5rem 1rem',
+        minWidth: '180px',
     }
 
     return (
@@ -27,11 +35,19 @@ export const InputText = (props) => {
 
 export const InputDate = (props) => {
     const labelStyle = {
+        color: colors.icelandicSky,
         display: 'block',
     }
 
     const inputStyle = {
+        backgroundColor: colors.scottishSky,
+        border: 'none',
+        borderRadius: '3px 3px 0px 0px',
+        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
+        color: colors.icelandicSky,
         marginRight: '1.5rem',
+        minWidth: '180px',
+        padding: '.4rem 1rem',
     }
 
     return (
@@ -45,31 +61,37 @@ export const InputDate = (props) => {
 }
 
 export const InputRadio = (props) => {
-    const labelStyle = {
+    const style = {
+        backgroundColor: colors.scottishSky,
+        borderRadius: '3px',
+        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
+        color: colors.icelandicSky,
         marginRight: '1.5rem',
+        padding: '.5rem 1rem',
     }
 
     return (
-        <>
+        <div style={style}>
             <input type={'radio'} id={props.id} name={props.name} />
-            <label for={props.id} style={labelStyle}>
+            <label for={props.id}>
                 {props.label}
             </label>
-        </>
+        </div>
     )
 }
 
 export const InputCheckbox = (props) => {
     const labelStyle = {
+        color: colors.icelandicSky,
         marginRight: '1.5rem',
     }
 
     return (
-        <FlexContainer>
+        <Row>
             <input type={'checkbox'} id={props.id} />
             <label for={props.id} style={labelStyle}>
                 {props.label}
             </label>
-        </FlexContainer>
+        </Row>
     )
 }

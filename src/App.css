@@ -1,10 +1,20 @@
 html, body {
-    color: '#754100';
-    font-family: Arial, sans-serif;
+    color: #763f00; /* brazilianCoffee */
+    font-family: 'Raleway';
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: local('Raleway'), url('../src/fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'ShadowsIntoLightTwo';
+    src: local('ShadowsIntoLightTwo'), url('../src/fonts/ShadowsIntoLightTwo-Regular.ttf');
 }
