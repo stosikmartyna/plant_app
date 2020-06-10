@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     InputText,
     InputDate,
@@ -15,14 +15,20 @@ import { ShipSectionForm } from "./ShipSectionForm";
 import { TrainSectionForm } from "./TrainSectionForm";
 
 export const AddTravelForm = () => {
+    const [tripType, setTripType] = useState('single');
+
+    const handleTripType = (event) => {
+        setTripType(event.target.value)
+    }
+
     return (
         <form>
             <Header size={2} marginBottom={1}>
                 Trip
             </Header>
             <Row marginBottom={2}>
-                <InputRadio id={"singleTrip"} name={"trip"} label={"Single"} />
-                <InputRadio id={"roundTrip"} name={"trip"} label={"Round"} />
+                <InputRadio id={"singleTrip"} name={"trip"} label={"Single"} onChange={handleTripType} value={'single'} />
+                <InputRadio id={"roundTrip"} name={"trip"} label={"Round"} onChange={handleTripType} value={'round'} />
             </Row>
 
             <Row>

@@ -72,7 +72,14 @@ export const InputRadio = (props) => {
 
     return (
         <div style={style}>
-            <input type={'radio'} id={props.id} name={props.name} />
+            <input 
+                type={'radio'} 
+                id={props.id} 
+                name={props.name} 
+                onChange={props.onChange}
+                checked={props.checked} 
+                value={props.value}
+            />
             <label for={props.id}>
                 {props.label}
             </label>
