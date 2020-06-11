@@ -20,7 +20,7 @@ export const InputText = (props) => {
 
     return (
         <div>
-            <label for={props.id} style={labelStyle}>
+            <label htmlFor={props.id} style={labelStyle}>
                 {props.label}
             </label>
             <input 
@@ -28,6 +28,7 @@ export const InputText = (props) => {
                 id={props.id} 
                 placeholder={props.placeholder}
                 style={inputStyle}
+                onChange={props.onChange}
             />
         </div>
     )
@@ -52,10 +53,10 @@ export const InputDate = (props) => {
 
     return (
         <div>
-            <label for={props.id} style={labelStyle}>
+            <label htmlFor={props.id} style={labelStyle}>
                 {props.label}
             </label>
-            <input type={'date'} id={props.id} style={inputStyle} />
+            <input type={'date'} id={props.id} style={inputStyle} onChange={props.onChange} />
         </div>
     )
 }
@@ -66,12 +67,13 @@ export const InputRadio = (props) => {
         borderRadius: '3px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         color: colors.icelandicSky,
+        cursor: 'pointer',
         marginRight: '1.5rem',
         padding: '.5rem 1rem',
     }
 
     return (
-        <div style={style}>
+        <label style={style} htmlFor={props.id}>
             <input 
                 type={'radio'} 
                 id={props.id} 
@@ -80,10 +82,8 @@ export const InputRadio = (props) => {
                 checked={props.checked} 
                 value={props.value}
             />
-            <label for={props.id}>
-                {props.label}
-            </label>
-        </div>
+            {props.label}
+        </label>
     )
 }
 
@@ -96,7 +96,7 @@ export const InputCheckbox = (props) => {
     return (
         <Row>
             <input type={'checkbox'} id={props.id} />
-            <label for={props.id} style={labelStyle}>
+            <label htmlFor={props.id} style={labelStyle}>
                 {props.label}
             </label>
         </Row>

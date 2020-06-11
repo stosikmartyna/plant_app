@@ -15,11 +15,25 @@ import { ShipSectionForm } from "./ShipSectionForm";
 import { TrainSectionForm } from "./TrainSectionForm";
 
 export const AddTravelForm = () => {
-    const [tripType, setTripType] = useState('single');
+    const [inputsValues, setInputsValues] = useState({
+        tripType: 'single',
+        dateFrom: '',
+        dateTo: '',
+        wherePlace: '',
+        whereCoutry: '',
+    });
 
     const handleTripType = (event) => {
-        setTripType(event.target.value)
+        setInputsValues({...inputsValues, tripType: event.target.value})
     }
+
+    const handleInputChange = (event) => {
+        event.persist();
+        setInputsValues({...inputsValues, [event.target.id]: event.target.value});
+    }
+
+    const isTripSingle = inputsValues.tripType === 'single';
+    const isTripRound = inputsValues.tripType === 'round';
 
     return (
         <form>
@@ -27,8 +41,8 @@ export const AddTravelForm = () => {
                 Trip
             </Header>
             <Row marginBottom={2}>
-                <InputRadio id={"singleTrip"} name={"trip"} label={"Single"} onChange={handleTripType} value={'single'} />
-                <InputRadio id={"roundTrip"} name={"trip"} label={"Round"} onChange={handleTripType} value={'round'} />
+                <InputRadio id={"singleTrip"} name={"trip"} label={"Single"} onChange={handleTripType} value={'single'} checked={isTripSingle} />
+                <InputRadio id={"roundTrip"} name={"trip"} label={"Round"} onChange={handleTripType} value={'round'} checked={isTripRound}/>
             </Row>
 
             <Row>
@@ -37,8 +51,8 @@ export const AddTravelForm = () => {
                         When
                     </Header>
                     <Row marginBottom={2}>
-                        <InputDate id={"dateFrom"} label={"Date from"} />
-                        <InputDate id={"dateTo"} label={"Date to"} />
+                        <InputDate id={"dateFrom"} label={"Date from"} onChange={handleInputChange} />
+                        <InputDate id={"dateTo"} label={"Date to"} onChange={handleInputChange} />
                     </Row>
                 </Col>
 
@@ -47,8 +61,8 @@ export const AddTravelForm = () => {
                         Where
                     </Header>
                     <Row>
-                        <InputText id={"wherePlace"} placeholder={"City, place, etc..."} />
-                        <InputText id={"whereCoutry"} placeholder={"Country"} />
+                        <InputText id={"wherePlace"} placeholder={"City, place, etc..."} onChange={handleInputChange} />
+                        <InputText id={"whereCoutry"} placeholder={"Country"} onChange={handleInputChange} />
                     </Row>
                 </Col>
 
@@ -69,26 +83,18 @@ export const AddTravelForm = () => {
                         </Col>
                     </Row>
                 </Col>
-
             </Row>
 
-            <Button text={"Add more places"} />
+            {isTripRound && (
+                <Button text={"Add more places"} />
+            )}
 
-            <h4>How - Section details</h4>
+            {/* <h4>How - Section details</h4>
             <PlaneSectionForm />
-            <br />
-            <br />
             <CarSectionForm />
-            <br />
-            <br />
             <BusSectionForm />
-            <br />
-            <br />
             <TrainSectionForm />
-            <br />
-            <br />
-            <ShipSectionForm />
-
+            <ShipSectionForm /> */}
         </form>
     );
 };

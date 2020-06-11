@@ -6,6 +6,7 @@ export const Button = (props) => {
         border: 'none',
         borderRadius: '3px',
         color: '#ffffff',
+        cursor: 'pointer',
         fontFamily: 'Raleway',
         margin: '.5rem 0',
         width: 'max-content'
