@@ -87,7 +87,7 @@ export const AddTravelForm = () => {
                     How
                 </Header>
                 <Row>
-                    <Col marginRight={5}>
+                    <Col marginRight={11}>
                         <InputCheckbox id={"transportBus"} label={"Bus"} onChange={handleInputCheck} />
                         <InputCheckbox id={"transportCar"} label={"Car"} onChange={handleInputCheck} />
                         <InputCheckbox id={"transportPlane"} label={"Plane"} onChange={handleInputCheck} />

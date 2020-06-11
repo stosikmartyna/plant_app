@@ -13,9 +13,10 @@ export const InputText = (props) => {
         border: 'none',
         borderRadius: '3px 3px 0px 0px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
-        marginRight: '1.5rem',
+        marginRight: !props.isSmall && '1.5rem',
+        maxWidth: props.isSmall && '110px',
+        minWidth: !props.isSmall && '180px',
         padding: '.5rem 1rem',
-        minWidth: '180px',
     }
 
     return (
@@ -108,3 +109,22 @@ export const InputCheckbox = (props) => {
         </Row>
     )
 }
+
+export const Select = (props) => {
+    const style = {
+        backgroundColor: colors.scottishSky,
+        border: 'none',
+        borderRadius: '3px 3px 0px 0px',
+        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
+        minWidth: '70px',
+        paddingLeft: '1rem',
+    }
+
+    return (
+        <select name={props.name} id={props.id} style={style}>
+            {props.options && props.options.map(option => {
+                return <option value={option.value}>{option.name}</option>
+            })}
+        </select>
+    );
+};
