@@ -21,6 +21,12 @@ export const AddTravelForm = () => {
         dateTo: '',
         wherePlace: '',
         whereCoutry: '',
+        transportBus: false,
+        transportCar: false,
+        transportPlane: false,
+        transportShip: false,
+        transportTrain: false,
+        transportOther: false,
     });
 
     const handleTripType = (event) => {
@@ -30,6 +36,11 @@ export const AddTravelForm = () => {
     const handleInputChange = (event) => {
         event.persist();
         setInputsValues({...inputsValues, [event.target.id]: event.target.value});
+    }
+
+    const handleInputCheck = (event) => {
+        event.persist();
+        setInputsValues({...inputsValues, [event.target.id]: event.target.checked});
     }
 
     const isTripSingle = inputsValues.tripType === 'single';
@@ -65,36 +76,36 @@ export const AddTravelForm = () => {
                         <InputText id={"whereCoutry"} placeholder={"Country"} onChange={handleInputChange} />
                     </Row>
                 </Col>
-
-                <Col>
-                    <Header size={2} marginBottom={1}>
-                        How
-                    </Header>
-                    <Row>
-                        <Col>
-                            <InputCheckbox id={"transportPlane"} label={"Plane"} />
-                            <InputCheckbox id={"transportCar"} label={"Car"} />
-                            <InputCheckbox id={"transportBus"} label={"Bus"} />
-                        </Col>
-                        <Col>
-                            <InputCheckbox id={"transportTrain"} label={"Train"} />
-                            <InputCheckbox id={"transportShip"} label={"Ship"} />
-                            <InputCheckbox id={"transportOther"} label={"Other"} />
-                        </Col>
-                    </Row>
-                </Col>
             </Row>
 
             {isTripRound && (
                 <Button text={"Add more places"} />
             )}
 
-            {/* <h4>How - Section details</h4>
-            <PlaneSectionForm />
-            <CarSectionForm />
-            <BusSectionForm />
-            <TrainSectionForm />
-            <ShipSectionForm /> */}
+            <Col>
+                <Header size={2} marginBottom={1}>
+                    How
+                </Header>
+                <Row>
+                    <Col marginRight={5}>
+                        <InputCheckbox id={"transportBus"} label={"Bus"} onChange={handleInputCheck} />
+                        <InputCheckbox id={"transportCar"} label={"Car"} onChange={handleInputCheck} />
+                        <InputCheckbox id={"transportPlane"} label={"Plane"} onChange={handleInputCheck} />
+                        <InputCheckbox id={"transportShip"} label={"Ship"} onChange={handleInputCheck} />
+                        <InputCheckbox id={"transportTrain"} label={"Train"} onChange={handleInputCheck} />
+                        <InputCheckbox id={"transportOther"} label={"Other"} onChange={handleInputCheck} />
+                    </Col>
+                    
+                    <Col>
+                        {inputsValues.transportBus && <BusSectionForm />}
+                        {inputsValues.transportCar && <CarSectionForm />}
+                        {inputsValues.transportPlane && <PlaneSectionForm />}
+                        {inputsValues.transportShip && <ShipSectionForm />}
+                        {inputsValues.transportTrain && <TrainSectionForm />}
+                        {/* {inputsValues.transportOther && <OtherSectionForm />} */}
+                    </Col>
+                </Row>
+            </Col>
         </form>
     );
 };

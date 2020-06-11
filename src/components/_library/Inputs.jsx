@@ -90,13 +90,19 @@ export const InputRadio = (props) => {
 export const InputCheckbox = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
-        marginRight: '1.5rem',
     }
 
     return (
-        <Row>
-            <input type={'checkbox'} id={props.id} />
-            <label htmlFor={props.id} style={labelStyle}>
+        <Row marginBottom={1}>
+            <input 
+                type={'checkbox'} 
+                id={props.id} 
+                onChange={props.onChange} 
+            />
+            <label 
+                htmlFor={props.id}
+                style={labelStyle}
+            >
                 {props.label}
             </label>
         </Row>

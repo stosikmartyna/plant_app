@@ -4,13 +4,13 @@ import { Row } from "../_library/Containers";
 
 export const CarSectionForm = () => {
   return (
-    <Row>
-        <InputText
+    <Row marginBottom={2}>
+      <InputText
             id={"car"}
             label={"Car"}
             placeholder={"Model, rental, etc..."}
         />
-        <InputText id={"carCosts"} label={"Car Costs"} />
+      <InputText id={"carCosts"} label={"Car Costs"} />
     </Row>
   );
 };

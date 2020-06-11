@@ -4,7 +4,7 @@ import { Row } from "../_library/Containers";
 
 export const ShipSectionForm = () => {
     return (
-        <Row>
+        <Row marginBottom={2}>
             <InputText
                 id={"ship"}
                 label={"Operator"}

@@ -4,7 +4,7 @@ import { Row } from "../_library/Containers";
 
 export const TrainSectionForm = () => {
     return (
-        <Row>
+        <Row marginBottom={2}>
             <InputText id={"train"} label={"Railways"} />
             <InputText id={"trainTicketPriceFrom"} label={"[ikonka]"} />
             <InputText id={"trainTicketPriceTo"} label={"[ikonka]"} />

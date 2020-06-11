@@ -1,8 +1,12 @@
 import React from 'react';
 
 export const Col = (props) => {
+    const style = {
+        marginRight: `${props.marginRight}rem`,
+    }
+
     return (
-        <div>
+        <div style={style}>
             {props.children}
         </div>
     )

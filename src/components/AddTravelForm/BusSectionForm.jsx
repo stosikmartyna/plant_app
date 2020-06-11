@@ -4,7 +4,7 @@ import { Row } from "../_library/Containers";
 
 export const BusSectionForm = () => {
     return (
-        <Row>
+        <Row marginBottom={2}>
             <InputText id={"busOperator"} label={"Bus Operator"} />
             <InputText id={"busTicketPriceFrom"} label={"[ikonka]"} />
             <InputText id={"busTicketPriceTo"} label={"[ikonka]"} />
