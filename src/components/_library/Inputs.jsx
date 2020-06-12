@@ -111,20 +111,32 @@ export const InputCheckbox = (props) => {
 }
 
 export const Select = (props) => {
-    const style = {
+    const labelStyle = {
+        color: colors.icelandicSky,
+        display: 'block',
+    }
+
+    const inputStyle = {
         backgroundColor: colors.scottishSky,
         border: 'none',
         borderRadius: '3px 3px 0px 0px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
-        minWidth: '70px',
-        paddingLeft: '1rem',
+        color: colors.icelandicSky,
+        marginRight: !props.isSmall && '1.5rem',
+        minWidth: props.isSmall ? '70px' : '210px',
+        padding: '.4rem .7rem',
     }
 
     return (
-        <select name={props.name} id={props.id} style={style}>
-            {props.options && props.options.map(option => {
-                return <option value={option.value}>{option.name}</option>
-            })}
-        </select>
+        <>
+            <label htmlfor={props.id} style={labelStyle}>
+                {props.label}
+            </label>
+            <select name={props.name} id={props.id} style={inputStyle}>
+                {props.options && props.options.map(option => {
+                    return <option value={option.value}>{option.name}</option>
+                })}
+            </select>
+        </>
     );
 };
