@@ -3,7 +3,7 @@ import { InputText, Select } from "../_library/Inputs";
 import { Row, Col } from "../_library/Containers";
 import { Header } from "../_library/Headers";
 
-export const TransportSectionForm = () => {
+export const AddTravelFormHow = () => {
     const currencyOptions = [
         { value: "pln", name: "zł" },
         { value: "eur", name: "€" },
