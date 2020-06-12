@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "../_library/Buttons";
-import { Row } from "../_library/Containers";
 import { AddTravelFormHow } from "./AddTravelFormHow";
 import { AddTravelFormTrip } from "./AddTravelFormTrip";
-import { AddTravelFormWhen } from "./AddTravelFormWhen";
 import { AddTravelFormWhere } from "./AddTravelFormWhere";
 
 export const AddTravelForm = () => {
@@ -36,17 +33,8 @@ export const AddTravelForm = () => {
 
     return (
         <form>
-            {console.log(inputsValues)}
             <AddTravelFormTrip onTripTypeChange={handleTripTypeChange} isSingle={isTripSingle} isRound={isTripRound}/>
-            <Row>
-                <AddTravelFormWhen onInputChange={handleInputChange}/>
-                <AddTravelFormWhere />
-            </Row>
-
-            {isTripRound && (
-                <Button text={"Add more places"} />
-            )}
-            
+            <AddTravelFormWhere onInputChange={handleInputChange} isTripRound={isTripRound}/>    
             <AddTravelFormHow onInputChange={handleInputChange}/>
         </form>
     );

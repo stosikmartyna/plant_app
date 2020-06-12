@@ -15,6 +15,7 @@ export const InputText = (props) => {
         borderRadius: '3px 3px 0px 0px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         marginRight: !props.isSmall && '1.5rem',
+        marginTop: props.noLabel && '1.2rem',
         maxWidth: props.isSmall && '110px',
         minWidth: !props.isSmall && '180px',
         padding: '.5rem 1rem',
@@ -133,12 +134,12 @@ export const Select = (props) => {
 
     return (
         <>
-            <label htmlfor={props.id} style={labelStyle}>
+            <label htmlFor={props.id} style={labelStyle}>
                 {props.label}
             </label>
             <select name={props.name} id={props.id} onChange={props.onChange} style={inputStyle}>
-                {props.options && props.options.map(option => {
-                    return <option value={option.value}>{option.name}</option>
+                {props.options && props.options.map((option, index) => {
+                    return <option key={index} value={option.value}>{option.name}</option>
                 })}
             </select>
         </>
