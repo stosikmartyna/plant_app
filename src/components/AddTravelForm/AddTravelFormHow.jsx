@@ -3,7 +3,7 @@ import { InputText, Select } from "../_library/Inputs";
 import { Row, Col } from "../_library/Containers";
 import { Header } from "../_library/Headers";
 
-export const AddTravelFormHow = () => {
+export const AddTravelFormHow = ({onInputChange}) => {
     const currencyOptions = [
         { value: "pln", name: "zł" },
         { value: "eur", name: "€" },
@@ -28,34 +28,36 @@ export const AddTravelFormHow = () => {
             </Header>
             <Row marginBottom={2}>
                 <Col>
-                    <Select id={"type"} options={transportOptions} label={'Transport'}/>
+                    <Select id={"transportType"} options={transportOptions} label={'Transport'} onChange={onInputChange}/>
                 </Col>
                 <Col>
                     <Row marginBottom={2}>
                         <InputText
-                            id={"from"}
+                            id={"cityFrom"}
                             label={"from"}
                             placeholder={"City"}
                             marginBottom={1}
+                            onChange={onInputChange}
                         />
                     </Row>
                     <Row>
-                        <InputText id={"priceFrom"} placeholder={"Price"} isSmall />
-                        <Select options={currencyOptions} isSmall />
+                        <InputText id={"priceFrom"} placeholder={"Price"} onChange={onInputChange} isSmall />
+                        <Select id={"priceFromCurrency"} options={currencyOptions} onChange={onInputChange} isSmall />
                     </Row>
                 </Col>
                 <Col>
                     <Row marginBottom={2}>
                         <InputText
-                            id={"to"}
+                            id={"cityTo"}
                             label={"to"}
                             placeholder={"City"}
                             marginBottom={1}
+                            onChange={onInputChange}
                         />
                     </Row>
                     <Row>
-                        <InputText id={"priceTo"} placeholder={"Price"} isSmall />
-                        <Select options={currencyOptions} isSmall />
+                        <InputText id={"priceTo"} placeholder={"Price"} onChange={onInputChange} isSmall />
+                        <Select id={"priceToCurrency"} options={currencyOptions} onChange={onInputChange} isSmall />
                     </Row>
                 </Col>
             </Row>

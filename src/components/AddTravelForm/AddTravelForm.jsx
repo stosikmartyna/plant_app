@@ -13,6 +13,13 @@ export const AddTravelForm = () => {
         dateTo: '',
         wherePlace: '',
         whereCoutry: '',
+        transportType: '',
+        cityFrom: '',
+        cityTo: '', 
+        priceFrom: '',
+        priceFromCurrency: '',
+        priceTo: '',
+        priceToCurrency: '',
     });
 
     const handleTripTypeChange = (event) => {
@@ -29,6 +36,7 @@ export const AddTravelForm = () => {
 
     return (
         <form>
+            {console.log(inputsValues)}
             <AddTravelFormTrip onTripTypeChange={handleTripTypeChange} isSingle={isTripSingle} isRound={isTripRound}/>
             <Row>
                 <AddTravelFormWhen onInputChange={handleInputChange}/>
@@ -39,7 +47,7 @@ export const AddTravelForm = () => {
                 <Button text={"Add more places"} />
             )}
             
-            <AddTravelFormHow />
+            <AddTravelFormHow onInputChange={handleInputChange}/>
         </form>
     );
 };

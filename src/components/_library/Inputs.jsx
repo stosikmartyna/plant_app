@@ -6,6 +6,7 @@ export const InputText = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
         display: 'block',
+        marginBottom: '.3rem',
     }
 
     const inputStyle = {
@@ -39,6 +40,7 @@ export const InputDate = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
         display: 'block',
+        marginBottom: '.3rem',
     }
 
     const inputStyle = {
@@ -69,6 +71,7 @@ export const InputRadio = (props) => {
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         color: colors.icelandicSky,
         cursor: 'pointer',
+        marginBottom: '.3rem',
         marginRight: '1.5rem',
         padding: '.5rem 1rem',
     }
@@ -123,6 +126,7 @@ export const Select = (props) => {
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         color: colors.icelandicSky,
         marginRight: !props.isSmall && '1.5rem',
+        marginTop: '.3rem',
         minWidth: props.isSmall ? '70px' : '210px',
         padding: '.4rem .7rem',
     }
@@ -132,7 +136,7 @@ export const Select = (props) => {
             <label htmlfor={props.id} style={labelStyle}>
                 {props.label}
             </label>
-            <select name={props.name} id={props.id} style={inputStyle}>
+            <select name={props.name} id={props.id} onChange={props.onChange} style={inputStyle}>
                 {props.options && props.options.map(option => {
                     return <option value={option.value}>{option.name}</option>
                 })}
