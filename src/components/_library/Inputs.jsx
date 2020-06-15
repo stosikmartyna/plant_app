@@ -126,9 +126,9 @@ export const Select = (props) => {
         borderRadius: '3px 3px 0px 0px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         color: colors.icelandicSky,
-        marginRight: !props.isSmall && '1.5rem',
+        marginRight: '1.5rem',
         marginTop: '.3rem',
-        minWidth: props.isSmall ? '70px' : '210px',
+        minWidth: '210px',
         padding: '.4rem .7rem',
     }
 

@@ -1,7 +1,15 @@
 import React from 'react';
+import { Row } from '../components/_library/Containers';
+import { Header } from '../components/_library/Headers';
+import { BackgroundPlantSVG } from '../components/BackgroundPlantSVG/BackgroundPlantSVG';
 
 export const HomeView = () => {
   return (
-    <span>home view</span>
+    <Row>
+      <Header size={2}>
+        Dashboard
+      </Header>
+      <BackgroundPlantSVG />
+    </Row>
   );
 }

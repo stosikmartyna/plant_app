@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { colors } from '../../helpers/colors';
 
 export const Button = (props) => {

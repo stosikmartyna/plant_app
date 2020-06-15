@@ -1,6 +1,6 @@
 export const ROUTES = {
     HOME: '/',
-    ADD_TRAVEL: '/add-travel',
-    MY_TRAVELS: '/my-travels',
-    TRAVEL_PLANS: '/travel-plans'
+    MY_GARDEN: '/my-garden',
+    ADD_PLANT: '/add-plant',
+    CARE_PLAN: '/care-plan'
 }
