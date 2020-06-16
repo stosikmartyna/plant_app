@@ -5,6 +5,7 @@ export const colors = {
     brazilianCoffee: '#763f00',
     brazilianCoffeeHover: '#5e3200',
     icelandicSky: '#808080',
+    moroccanSands: '#fec37d',
     pastelRose: '#fce1da',
     scottishSky: '#f7f7f7',
     thaiRainforest: '#00543c',

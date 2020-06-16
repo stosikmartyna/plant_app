@@ -66,19 +66,21 @@ export const InputDate = (props) => {
 }
 
 export const InputRadio = (props) => {
-    const style = {
-        backgroundColor: colors.scottishSky,
-        borderRadius: '3px',
-        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
-        color: colors.icelandicSky,
+    const labelStyle = {
+        alignItems: 'center',
         cursor: 'pointer',
-        marginBottom: '.3rem',
-        marginRight: '1.5rem',
-        padding: '.5rem 1rem',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '1rem',
+    }
+
+    const inputStyle = {
+        marginTop: '1rem',
     }
 
     return (
-        <label style={style} htmlFor={props.id}>
+        <label style={labelStyle} htmlFor={props.id}>
+            {props.label}
             <input 
                 type={'radio'} 
                 id={props.id} 
@@ -86,8 +88,8 @@ export const InputRadio = (props) => {
                 onChange={props.onChange}
                 checked={props.checked} 
                 value={props.value}
+                style={inputStyle}
             />
-            {props.label}
         </label>
     )
 }
