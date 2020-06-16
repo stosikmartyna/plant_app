@@ -7,7 +7,7 @@ export const HomeView = () => {
   return (
     <Row>
       <Header size={2}>
-        Dashboard
+        Strona główna
       </Header>
       <BackgroundPlantSVG />
     </Row>

@@ -2,6 +2,6 @@ import React from "react";
 
 export const AddPlantForm = () => {
     return (
-        <span>Add plant form</span>
+        <span>Formularz dodania rośliny</span>
     );
 };

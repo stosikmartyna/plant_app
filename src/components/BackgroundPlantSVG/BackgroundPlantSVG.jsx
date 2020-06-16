@@ -10,8 +10,6 @@ export const BackgroundPlantSVG = () => {
 			y="0px"
 			viewBox="0 0 750 750"
 			enable-background="new 0 0 750 750"
-			xml
-			version="1.0"
 			encoding="utf-8"
 			width='40vw'
 		>

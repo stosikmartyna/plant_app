@@ -25,7 +25,7 @@ export const AppLogo = () => {
     return (
         <div style={containerStyle}>
             <img src={'appLogo.png'} alt={'app_logo'} style={logoImgStyle} />
-            <h1 style={logoTitleStyle}>Take Care of Plants</h1>
+            <h1 style={logoTitleStyle}>PlantCare</h1>
         </div>
     )
 }

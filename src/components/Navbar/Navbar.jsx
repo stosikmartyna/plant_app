@@ -15,22 +15,22 @@ export const Navbar = () => {
             <NavbarLink
                 path={ROUTES.HOME}
                 icon={home}
-                title={'Home'}
+                title={'Strona główna'}
             />
             <NavbarLink
                 path={ROUTES.ADD_PLANT}
                 icon={plus}
-                title={'Add Plant'}
+                title={'Dodaj roślinę'}
             />
             <NavbarLink
                 path={ROUTES.MY_GARDEN}
                 icon={leaf}
-                title={'My Garden'}
+                title={'Mój ogród'}
             />
             <NavbarLink
                 path={ROUTES.CARE_PLAN}
                 icon={calendar}
-                title={'Care Plan'}
+                title={'Plan opieki'}
             />
         </NavContainer>
     )
