@@ -5,7 +5,7 @@ import { AddPlantForm } from '../components/AddPlantForm/AddPlantForm';
 export const AddPlantView = () => {
   return (
     <>
-      <Header size={2}>Dodaj roślinę</Header>
+      <Header size={1} marginBottom={2}>Dodaj roślinę</Header>
       <AddPlantForm />
     </>
   );

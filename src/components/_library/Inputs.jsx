@@ -2,27 +2,32 @@ import React from 'react';
 import { Row } from './Containers';
 import { colors } from '../../helpers/colors';
 
+const commonInputStyle = {
+    backgroundColor: colors.scottishSky,
+    border: 'none',
+    borderRadius: '3px 3px 0px 0px',
+    boxShadow: `0 1px 3px ${colors.icelandicSky}`,
+    color: colors.icelandicSky,
+    fontFamily: 'Raleway',
+    marginTop: '.3rem',
+}
+
 export const InputText = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
         display: 'block',
-        marginBottom: '.3rem',
     }
 
     const inputStyle = {
-        backgroundColor: colors.scottishSky,
-        border: 'none',
-        borderRadius: '3px 3px 0px 0px',
-        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
-        marginRight: !props.isSmall && '1.5rem',
-        marginTop: props.noLabel && '1.2rem',
-        maxWidth: props.isSmall && '110px',
-        minWidth: !props.isSmall && '180px',
+        ...commonInputStyle,
+        marginBottom: `${props.marginBottom}rem`,
+        minWidth: '180px',
         padding: '.5rem 1rem',
+        width: '70%',
     }
 
     return (
-        <div>
+        <>
             <label htmlFor={props.id} style={labelStyle}>
                 {props.label}
             </label>
@@ -33,7 +38,7 @@ export const InputText = (props) => {
                 style={inputStyle}
                 onChange={props.onChange}
             />
-        </div>
+        </>
     )
 }
 
@@ -41,18 +46,13 @@ export const InputDate = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
         display: 'block',
-        marginBottom: '.3rem',
     }
 
     const inputStyle = {
-        backgroundColor: colors.scottishSky,
-        border: 'none',
-        borderRadius: '3px 3px 0px 0px',
-        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
-        color: colors.icelandicSky,
-        marginRight: '1.5rem',
+        ...commonInputStyle,
         minWidth: '180px',
         padding: '.4rem 1rem',
+        width: '70%',
     }
 
     return (
@@ -123,13 +123,7 @@ export const Select = (props) => {
     }
 
     const inputStyle = {
-        backgroundColor: colors.scottishSky,
-        border: 'none',
-        borderRadius: '3px 3px 0px 0px',
-        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
-        color: colors.icelandicSky,
-        marginRight: '1.5rem',
-        marginTop: '.3rem',
+        ...commonInputStyle,
         minWidth: '210px',
         padding: '.4rem .7rem',
     }
@@ -145,5 +139,21 @@ export const Select = (props) => {
                 })}
             </select>
         </>
-    );
-};
+    )
+}
+
+export const TextArea = (props) => {
+    const textAreaStyle = {
+        ...commonInputStyle,
+        maxHeight: '120px',
+        maxWidth: '90%',
+        minHeight: '80px',
+        minWidth: '90%',
+        padding: '.4rem .7rem',
+    }
+    return (
+        <textarea id={props.id} onChange={props.onChange} placeholder={props.placeholder} style={textAreaStyle}>
+            {props.text}
+        </textarea>
+    )
+}

@@ -34,6 +34,7 @@ export const ViewContainer = (props) => {
 export const Col = (props) => {
     const style = {
         marginRight: `${props.marginRight}rem`,
+        width: `${props.size}rem`, 
     }
 
     return (

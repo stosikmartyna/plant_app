@@ -8,14 +8,14 @@ export const Button = (props) => {
     const unsetHover = () => setIsHover(false);
 
     const style = {
-        backgroundColor: isHover ? colors.brazilianCoffeeHover : colors.brazilianCoffee,
+        backgroundColor: isHover ? colors.amazonGreenHover : colors.amazonGreen,
         border: 'none',
         borderRadius: '3px',
         color: colors.arcticSnow,
         cursor: 'pointer',
         fontFamily: 'Raleway',
-        marginBottom: '2rem',
-        padding: props.isSmall ? '.3rem .8rem' : '.5rem 1rem',
+        letterSpacing: '.1rem',
+        padding: '.7rem 2rem',
         width: 'max-content'
     }
 
