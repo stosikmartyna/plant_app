@@ -1,5 +1,15 @@
 import React from 'react';
 
+export const initialFormState = {
+    plantType: '',
+    plantName: '',
+    date: '',
+    water: '',
+    mist: '',
+    fertilize: '',
+    informations: '',
+}
+
 export const plantID = {
     icon1: 'icon_plant_1',
     icon2: 'icon_plant_2',

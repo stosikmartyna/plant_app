@@ -42,6 +42,29 @@ export const InputText = (props) => {
     )
 }
 
+export const InputInline = (props) => {
+    const textStyle = {
+        fontSize: '1.1rem',
+    }
+    
+    const inputStyle = {
+        border: 'none',
+        borderBottom: `1px solid ${colors.icelandicSky}`,
+        color: colors.amazonGreen,
+        margin: '0 .5rem',
+        textAlign: 'center',
+        width: '44px',
+    }
+
+    return (
+        <Row marginBottom={props.marginBottom}>
+            <span style={textStyle}>{props.textBefore}</span>
+            <input type={'text'} id={props.id} style={inputStyle} maxLength={props.maxInputLength} onChange={props.onChange}/>
+            <span style={textStyle}>{props.textAfter}</span>
+        </Row>
+    )
+} 
+
 export const InputDate = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
