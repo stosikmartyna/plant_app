@@ -8,10 +8,11 @@ export const BackgroundPlantSVG = () => {
 			xmlns="http://www.w3.org/2000/svg"
 			x="0px"
 			y="0px"
-			viewBox="0 0 750 750"
-			enable-background="new 0 0 750 750"
+			viewBox="65 60 620 630"
+			enable-background="new 65 60 620 630"
 			encoding="utf-8"
 			width='40vw'
+			className='plantIcon'
 		>
 			<metadata>
 				<sfw>

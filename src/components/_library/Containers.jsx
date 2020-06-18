@@ -20,6 +20,7 @@ export const NavContainer = (props) => {
 
 export const ViewContainer = (props) => {
     const style = {
+        height: 'calc(100vh - 6rem)',
         marginLeft: '10rem',
         padding: '3rem',
     }
@@ -33,7 +34,12 @@ export const ViewContainer = (props) => {
 
 export const Col = (props) => {
     const style = {
+        borderRight: `1px solid ${props.borderRight}`,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: props.justify,
         marginRight: `${props.marginRight}rem`,
+        alignItems: props.align,
         width: `${props.size}rem`, 
     }
 
