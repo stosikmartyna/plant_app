@@ -1,15 +1,12 @@
 import React from 'react';
-import { Row } from '../components/_library/Containers';
-import { Header } from '../components/_library/Headers';
-import { BackgroundPlantSVG } from '../components/BackgroundPlantSVG/BackgroundPlantSVG';
+import { colors } from '../helpers/colors';
+import { ViewContainer } from '../components/_library/Containers';
+import { AppLogo } from '../components/_library/AppLogo';
 
 export const HomeView = () => {
   return (
-    <Row>
-      <Header size={1}>
-        Strona główna
-      </Header>
-      <BackgroundPlantSVG />
-    </Row>
+    <ViewContainer backgroundFor={'homeview'} justifyHorizontally>
+      <AppLogo size={12} titleColor={colors.thaiRainforest} />
+    </ViewContainer>
   );
 }

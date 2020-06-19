@@ -20,7 +20,12 @@ export const NavContainer = (props) => {
 
 export const ViewContainer = (props) => {
     const style = {
-        height: 'calc(100vh - 6rem)',
+        backgroundImage: `url("${props.backgroundFor}_background.png")`,
+        backgroundSize: '100% 100%',
+        display: props.justifyHorizontally ? 'flex' : 'block',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        height: 'calc(100vh - 3rem)',
         marginLeft: '10rem',
         padding: '1.5rem 3rem',
     }
