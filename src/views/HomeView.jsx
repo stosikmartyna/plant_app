@@ -6,7 +6,7 @@ import { BackgroundPlantSVG } from '../components/BackgroundPlantSVG/BackgroundP
 export const HomeView = () => {
   return (
     <Row>
-      <Header size={2}>
+      <Header size={1}>
         Strona główna
       </Header>
       <BackgroundPlantSVG />

@@ -3,6 +3,6 @@ import { Header } from '../components/_library/Headers';
 
 export const CarePlanView = () => {
   return (
-    <Header size={2}>Plan opieki nad roślinami</Header>
+    <Header size={1}>Plan opieki nad roślinami</Header>
   );
 }
