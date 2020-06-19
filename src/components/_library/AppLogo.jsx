@@ -1,25 +1,23 @@
 import React from 'react';
 import { colors } from '../../helpers/colors';
 
-export const AppLogo = () => {
+export const AppLogo = (props) => {
     const containerStyle = {
-        color: colors.arcticSnow,
+        color: props.titleColor || colors.arcticSnow,
         padding: '1rem 0',
+        textAlign: 'center',
     }
     
     const logoImgStyle = {
-        marginLeft: '2rem',
-        width: '80px',
+        width: `${props.size}rem`,
     }
     
     const logoTitleStyle = {
         fontFamily: 'ShadowsIntoLightTwo',
-        fontSize: '1.5rem',
+        fontSize: `calc(${props.size}rem / 4)`,
         fontWeight: 'lighter',
         letterSpacing: '.2rem',
         lineHeight: '1',
-        margin: '0',
-        textAlign: 'center',
     }
     
     return (

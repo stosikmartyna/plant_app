@@ -11,7 +11,7 @@ import { NavContainer } from '../_library/Containers';
 export const Navbar = () => {
     return (
         <NavContainer>
-            <AppLogo />
+            <AppLogo size={6} />
             <NavbarLink
                 path={ROUTES.HOME}
                 icon={home}
