@@ -5,9 +5,18 @@ export const Header = (props) => {
         marginBottom: `${props.marginBottom}rem`,
     }
 
+    const h1Style = {
+        ...style,
+        fontFamily: 'ShadowsIntoLightTwo',
+        fontSize: '3rem',
+        fontWeight: 'lighter',
+        letterSpacing: '.3rem',
+        textAlign: 'center',
+    }
+
     switch (props.size) {
         case 1:
-            return <h1 style={style}>{props.children}</h1>
+            return <h1 style={h1Style}>{props.children}</h1>
         case 2:
             return <h2 style={style}>{props.children}</h2>
         case 3:

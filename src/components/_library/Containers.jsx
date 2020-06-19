@@ -22,7 +22,7 @@ export const ViewContainer = (props) => {
     const style = {
         height: 'calc(100vh - 6rem)',
         marginLeft: '10rem',
-        padding: '3rem',
+        padding: '1.5rem 3rem',
     }
 
     return (
