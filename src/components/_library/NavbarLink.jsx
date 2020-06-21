@@ -26,7 +26,7 @@ export const NavbarLink = (props) => {
     }
 
     return (
-        <Link to={props.path} style={linkStyle}>
+        <Link to={props.path} style={linkStyle} onClick={props.onClick}>
             <div onMouseOver={setHover} onMouseOut={unsetHover}>
                 <Icon icon={props.icon} size={36} />
                 <span style={linkName}>
