@@ -1,10 +1,11 @@
 import React, { useCallback, useContext } from 'react';
 import firebase from 'firebase';
 import { withRouter, Redirect } from 'react-router';
+import { ROUTES } from '../../helpers/routes'; 
 import { AuthContext } from '../Auth/Auth';
 
 const SignIn = ({history}) => {
-    const {currentUser} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     const handleSignIn = useCallback(
         async event => {
@@ -25,7 +26,7 @@ const SignIn = ({history}) => {
     )
 
 
-    if (currentUser) return <Redirect to='/' />
+    if (user) return <Redirect to='/' />
 
     return (
         <div>
@@ -40,6 +41,10 @@ const SignIn = ({history}) => {
                     <input name='password' type='password' placeholder='password'/>
                 </label>
                 <button type='submit'>Zaloguj</button>
+
+                <span onClick={() => history.push(ROUTES.SIGN_UP)}>
+                    Nie masz jeszcze konta? Zarejestruj się!
+                </span>
             </form>
         </div>
     )

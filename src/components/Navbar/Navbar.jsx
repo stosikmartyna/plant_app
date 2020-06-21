@@ -13,7 +13,7 @@ import { userTimes } from 'react-icons-kit/fa/userTimes';
 import { NavContainer } from '../_library/Containers';
 
 export const Navbar = () => {
-    const {currentUser} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
     const signOut = () => {
         firebase.auth().signOut();
@@ -42,7 +42,7 @@ export const Navbar = () => {
                 icon={calendar}
                 title={'Plan opieki'}
             />
-            {!currentUser 
+            {!user 
                 ? (
                     <NavbarLink
                         path={ROUTES.SIGN_IN}
