@@ -1,6 +1,6 @@
 import React from 'react';
+import AddPlantForm from '../components/AddPlantForm/AddPlantForm';
 import { Header } from '../components/_library/Headers';
-import { AddPlantForm } from '../components/AddPlantForm/AddPlantForm';
 import { ViewContainer } from '../components/_library/Containers';
 
 export const AddPlantView = () => {

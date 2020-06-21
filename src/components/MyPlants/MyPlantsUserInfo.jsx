@@ -3,13 +3,15 @@ import { Header } from '../_library/Headers';
 import { Row, Col } from '../_library/Containers';
 import { Text } from '../_library/Text';
 
-export const MyPlantsUserInfo = () => {
+export const MyPlantsUserInfo = ({plant}) => {
+    const {date, informations} = plant;
+    
     return (
         <Row>
             <Col>
                 <Header size={4} marginBottom={0.5}>Informacje dodatkowe</Header>
-                <Text>Data nabycia: 01.01.2001</Text>
-                <Text>Dodatkowe informacje o roślinie podane przez użytkownika podczas wypełniania formularza.</Text>
+                <Text>Data nabycia: {date}</Text>
+                <Text>Dodatkowe informacje o roślinie: {informations}</Text>
             </Col>
         </Row>
     )

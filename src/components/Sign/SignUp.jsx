@@ -1,28 +1,28 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
 import firebase from 'firebase'
 
 const SignUp = ({ history }) => {
-    const handleSignUp = useCallback(async event => {
+    const handleSubmit = (event => {
         event.preventDefault();
-
         const { email, password } = event.target.elements;
 
-        try {
-            await firebase
-                .auth()
-                .createUserWithEmailAndPassword(email.value, password.value)
-            history.push('/')
-        } 
-        catch (error) {
-            console.warn(error)
-        }
-    }, [history]);
+        firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+            .then(value => {
+                firebase.database().ref(`users/${value.user.uid}`)
+                    .set({
+                        email: value.user.email,
+                        uid: value.user.uid
+                    })
+                    history.push('/')
+                })
+            .catch(err => console.warn(err))
+    })
 
     return (
         <div>
             <h1>Zarejestruj się</h1>
-            <form onSubmit={handleSignUp}>
+            <form onSubmit={handleSubmit}>
                 <label>
                     email
                     <input name='email' placeholder='email'/>
