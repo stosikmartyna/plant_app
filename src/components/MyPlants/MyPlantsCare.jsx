@@ -3,7 +3,9 @@ import { Header } from '../_library/Headers';
 import { Row, Col } from '../_library/Containers';
 import { Text } from '../_library/Text';
 
-export const MyPlantsCare = () => {
+export const MyPlantsCare = ({plant}) => {
+    const {water, mist, fertilize} = plant;
+    
     return (
         <>
             <Row>
@@ -17,9 +19,9 @@ export const MyPlantsCare = () => {
                     <Text>Nawożenie</Text>
                 </Col> 
                 <Col marginRight={1}>
-                    <Text>co 5 dni</Text>
-                    <Text>co 5 dni</Text>
-                    <Text>co 5 dni</Text>
+                    <Text>co {water} dni</Text>
+                    <Text>co {mist} dni</Text>
+                    <Text>co {fertilize} dni</Text>
                 </Col> 
                 <Col>
                     <Text>ostatnio 12.06.2020</Text>

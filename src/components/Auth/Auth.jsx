@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
                 setUserPlants(userPlants);
             })
             .catch(err => console.warn(err.message));
-    }, [user]);
+    }, [user, userPlants]);
 
     return (
         <AuthContext.Provider value={{user, userPlants}}>
