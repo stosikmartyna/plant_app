@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 import firebase from 'firebase';
-import { withRouter, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 import { ROUTES } from '../../helpers/routes'; 
 import { AuthContext } from '../Auth/Auth';
 
@@ -17,7 +17,7 @@ const SignIn = ({history}) => {
                 await firebase
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value);
-                    history.push('/');
+                    history.push(ROUTES.MY_GARDEN);
             } 
             catch (error) {
                 console.warn(error)
@@ -25,8 +25,7 @@ const SignIn = ({history}) => {
         }, [history]
     )
 
-
-    if (user) return <Redirect to='/' />
+    if (user) history.push(ROUTES.HOME)
 
     return (
         <div>
