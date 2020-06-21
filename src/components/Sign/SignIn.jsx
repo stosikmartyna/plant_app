@@ -4,7 +4,7 @@ import { withRouter, Redirect } from 'react-router';
 import { AuthContext } from '../Auth/Auth';
 
 const SignIn = ({history}) => {
-    const {currentUser} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     const handleSignIn = useCallback(
         async event => {
@@ -25,7 +25,7 @@ const SignIn = ({history}) => {
     )
 
 
-    if (currentUser) return <Redirect to='/' />
+    if (user) return <Redirect to='/' />
 
     return (
         <div>
