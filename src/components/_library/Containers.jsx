@@ -20,7 +20,7 @@ export const NavContainer = (props) => {
 
 export const ViewContainer = (props) => {
     const style = {
-        backgroundImage: `url("${props.backgroundFor}_background.png")`,
+        backgroundImage: `url("${props.background}")`,
         backgroundSize: '100% 100%',
         display: props.justifyHorizontally ? 'flex' : 'block',
         flexDirection: 'column',
@@ -58,12 +58,32 @@ export const Col = (props) => {
 export const Row = (props) => {
     const style = {
         display: 'flex',
+        justifyContent: props.justify,
         marginBottom: `${props.marginBottom}rem`,
     }
 
     return (
         <div style={style}>
             {props.children}
+        </div>
+    )
+}
+
+export const SignContainer = ({children}) => {
+    const style = {
+        alignItems: 'center',
+        backgroundColor: colors.arcticSnowTransparent,
+        border: `3px solid ${colors.pastelRose}`,
+        borderRadius: '10px',
+        margin: 'auto',
+        minWidth: '332px',
+        padding: '4rem',
+        width: 'min-content',
+    }
+    
+    return (
+        <div style={style}>
+            {children}
         </div>
     )
 }

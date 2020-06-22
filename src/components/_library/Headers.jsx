@@ -2,6 +2,7 @@ import React from 'react';
 
 export const Header = (props) => {
     const style = {
+        margin: '0',
         marginBottom: `${props.marginBottom}rem`,
     }
 

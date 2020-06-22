@@ -1,6 +1,14 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import firebase from 'firebase'
+import { withRouter } from 'react-router';
+import { ROUTES } from '../../helpers/routes'; 
+import { InputTextIcon } from '../_library/Inputs';
+import { Button } from '../_library/Buttons';
+import { envelopeO } from 'react-icons-kit/fa/envelopeO';
+import { lock } from 'react-icons-kit/fa/lock'
+import { Col, SignContainer } from '../_library/Containers';
+import { Link } from '../_library/Link';
+import { Header } from '../_library/Headers';
 
 const SignUp = ({ history }) => {
     const handleSubmit = (event => {
@@ -19,21 +27,18 @@ const SignUp = ({ history }) => {
             .catch(err => console.warn(err))
     })
 
-    return (
-        <div>
-            <h1>Zarejestruj się</h1>
+    return (  
+        <SignContainer>
+            <Header size={1} marginBottom={1}>Zarejestruj się</Header>
             <form onSubmit={handleSubmit}>
-                <label>
-                    email
-                    <input name='email' placeholder='email'/>
-                </label>
-                <label>
-                    password
-                    <input name='password' type='password' placeholder='password'/>
-                </label>
-                <button type='submit'>Zarejestruj</button>
+                <Col>
+                    <InputTextIcon type={'text'} placeholder={'Email'} name={'email'} icon={envelopeO} />
+                    <InputTextIcon type={'password'} placeholder={'Hasło'} name={'password'} icon={lock} />
+                    <Button text={'Zarejestruj'} type={'submit'} marginBottom={1} justify={'center'}/>
+                    <Link to={ROUTES.SIGN_IN} justify={'center'}>Mam już konto</Link>
+                </Col>
             </form>
-        </div>
+        </SignContainer>
     )
 }
 
