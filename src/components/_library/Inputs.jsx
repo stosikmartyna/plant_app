@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row } from './Containers';
 import { colors } from '../../helpers/colors';
+import { Icon } from 'react-icons-kit';
 
 const commonInputStyle = {
     backgroundColor: colors.scottishSky,
@@ -61,6 +62,37 @@ export const InputInline = (props) => {
             <span style={textStyle}>{props.textBefore}</span>
             <input type={'text'} id={props.id} style={inputStyle} maxLength={props.maxInputLength} onChange={props.onChange}/>
             <span style={textStyle}>{props.textAfter}</span>
+        </Row>
+    )
+} 
+
+export const InputTextIcon = (props) => {
+    const labelStyle = {
+        borderBottom: `1px solid ${colors.amazonGreen}`,
+        marginBottom: '1.3rem',
+        width: '320px',
+    }
+    
+    const iconStyle = {
+        marginBottom: '.3rem'
+    }
+
+    const inputStyle = {
+        backgroundColor: 'transparent',
+        border: 'none',
+        color: colors.amazonGreen,
+        fontFamily: 'Raleway',
+        letterSpacing: '.1rem',
+        marginLeft: '.7rem',
+        width: '280px',
+    }
+
+    return (
+        <Row marginBottom={props.marginBottom}>
+            <label style={labelStyle}>
+                <Icon icon={props.icon} size={24} style={iconStyle}/>
+                <input type={props.type} placeholder={props.placeholder} name={props.name} style={inputStyle} />
+            </label>
         </Row>
     )
 } 

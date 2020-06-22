@@ -5,7 +5,7 @@ import { AppLogo } from '../components/_library/AppLogo';
 
 export const HomeView = () => {
   return (
-    <ViewContainer backgroundFor={'homeview'} justifyHorizontally>
+    <ViewContainer background={'homeview_background.png'} justifyHorizontally>
       <AppLogo size={12} titleColor={colors.thaiRainforest} />
     </ViewContainer>
   );

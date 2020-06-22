@@ -1,10 +1,10 @@
 import React from 'react';
-import { ViewContainer } from '../components/_library/Containers';
 import SignIn from '../components/Sign/SignIn';
+import { ViewContainer } from '../components/_library/Containers';
 
 export const SignInView = () => {
     return (
-        <ViewContainer>
+        <ViewContainer background={'./sign/sign-in.jpg'} justifyHorizontally>
             <SignIn />
         </ViewContainer>
     )

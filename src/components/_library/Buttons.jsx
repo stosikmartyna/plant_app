@@ -15,6 +15,8 @@ export const Button = (props) => {
         cursor: 'pointer',
         fontFamily: 'Raleway',
         letterSpacing: '.1rem',
+        margin: props.justify === 'center' && '0 auto',
+        marginBottom: `${props.marginBottom}rem`,
         padding: '.7rem 2rem',
         width: 'max-content'
     }
@@ -25,6 +27,7 @@ export const Button = (props) => {
             onClick={props.onClick} 
             onMouseOver={setHover} 
             onMouseOut={unsetHover}
+            type={props.type}
         >
             {props.text}
         </button>
