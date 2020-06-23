@@ -14,6 +14,7 @@ export const NavbarLink = (props) => {
         color: colors.arcticSnow,
         fontSize: '.8rem',
         letterSpacing: '.1rem',
+        marginBottom: `${props.marginBottom}rem`,
         padding: '.8rem 0',
         textAlign: 'center',
         textDecoration: 'none',
