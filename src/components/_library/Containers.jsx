@@ -7,6 +7,7 @@ export const NavContainer = (props) => {
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
+        justifyContent: props.justify,
         position: 'fixed',
         width: '160px',
     }
