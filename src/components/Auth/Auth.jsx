@@ -9,7 +9,9 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(setUser);
+    }, []);
 
+    useEffect(() => {
         user && firebase.database().ref(`users/${user.uid}/plants`)
             .once('value')
             .then(snapshot => {
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children }) => {
                 setUserPlants(userPlants);
             })
             .catch(err => console.warn(err.message));
-    }, [user, userPlants]);
+    }, [user])
 
     return (
         <AuthContext.Provider value={{user, userPlants}}>
