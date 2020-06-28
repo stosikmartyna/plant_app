@@ -7,7 +7,7 @@ export const initialFormState = {
     water: '',
     mist: '',
     fertilize: '',
-    informations: '',
+    information: '',
 }
 
 export const plantID = {

@@ -2,6 +2,7 @@ import React from 'react';
 import { InputRadio } from '../_library/Inputs';
 import { Row } from '../_library/Containers';
 import { Header } from '../_library/Headers';
+import { colors } from '../../helpers/colors';
 import { 
     plantID, 
     PlantIconImg1, 
@@ -16,7 +17,7 @@ import {
     PlantIconImg10
 } from './AddPlantForm.helpers'
 
-export const AddPlantFormType = ({onPlantTypeChange}) => {
+export const AddPlantFormType = ({onPlantTypeChange, plantType, isFormSubmitted}) => {
     return (
         <>
             <Header size={2} marginBottom={1}>Wybierz typ</Header>
@@ -32,6 +33,22 @@ export const AddPlantFormType = ({onPlantTypeChange}) => {
                 <InputRadio id={plantID.icon9} label={<PlantIconImg9/>} name={'plant'} onChange={onPlantTypeChange}/>
                 <InputRadio id={plantID.icon10} label={<PlantIconImg10/>} name={'plant'} onChange={onPlantTypeChange} />
             </Row>
+            {isFormSubmitted && !plantType && <PlantTypeErrorMessage />}
         </>
+    )
+}
+
+export const PlantTypeErrorMessage = () => {
+    const style = {
+        color: colors.russianRed,
+        display: 'block',
+        fontSize: '.8rem',
+        margin: '-1rem 0 1rem 0',
+    }
+
+    return (
+        <Row>
+            <span style={style}>Wybierz typ rośliny.</span>
+        </Row>
     )
 }

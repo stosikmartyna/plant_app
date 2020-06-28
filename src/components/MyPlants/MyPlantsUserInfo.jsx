@@ -4,14 +4,14 @@ import { Row, Col } from '../_library/Containers';
 import { Text } from '../_library/Text';
 
 export const MyPlantsUserInfo = ({plant}) => {
-    const {date, informations} = plant;
+    const {date, information} = plant;
     
     return (
         <Row>
             <Col>
                 <Header size={4} marginBottom={0.5}>Informacje dodatkowe</Header>
                 <Text>Data nabycia: {date}</Text>
-                <Text>Dodatkowe informacje o roślinie: {informations}</Text>
+                {information && <Text>Dodatkowe informacje o roślinie: {information}</Text>}
             </Col>
         </Row>
     )

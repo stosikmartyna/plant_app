@@ -10,30 +10,50 @@ import { withRouter } from 'react-router';
 
 const AddPlantForm = ({history}) => {
     const [formValues, setFormValues] = useState(initialFormState);
+    const [isFormValid, setIsFormValid] = useState(undefined)
+    const [isValidated, setIsValidated] = useState(false)
     const {user, userPlants} = useContext(AuthContext);
+
+    const checkFormValidation = () => {
+        return formValues.plantType.trim().length > 0
+            && formValues.plantName.trim().length > 0
+            && formValues.date.trim().length > 0
+            && formValues.water.trim().length > 0
+            && formValues.mist.trim().length > 0
+            && formValues.fertilize.trim().length > 0
+                ? setIsFormValid(true)
+                : setIsFormValid(false)
+    }
 
     const handlePlantTypeChange = (event) => {
         setFormValues({...formValues, plantType: event.target.id})
+        checkFormValidation()
     }
 
     const handleInputChange = (event) => {
         event.persist();
         setFormValues({...formValues, [event.target.id]: event.target.value});
+        checkFormValidation()
     }
 
     const handleSubmit = () => {
-        firebase.database().ref(`users/${user.uid}/plants`).set([...userPlants, formValues])
-            .then(() => {
-                alert('Dodano pomyślnie')
-                history.push(ROUTES.MY_GARDEN)
-            })
-            .catch((err) => alert(err))
+        const postUrl = `users/${user.uid}/plants`
+        const postFormValues = firebase.database().ref(postUrl).set([...userPlants, formValues])
+
+        isFormValid 
+            ? postFormValues
+                .then(() => {
+                    alert('Dodano pomyślnie')
+                    history.push(ROUTES.MY_GARDEN)
+                })
+                .catch((err) => alert(err))
+            : setIsValidated(true)
     }
 
     return (
         <>
-            <AddPlantFormType onPlantTypeChange={handlePlantTypeChange} />
-            <AddPlantFormInfo onInputChange={handleInputChange} />
+            <AddPlantFormType onPlantTypeChange={handlePlantTypeChange} plantType={formValues.plantType} isFormSubmitted={isValidated}/>
+            <AddPlantFormInfo onInputChange={handleInputChange} values={formValues} isFormSubmitted={isValidated}/>
             <Button text={'DODAJ'} onClick={handleSubmit}/>
         </>
     );
