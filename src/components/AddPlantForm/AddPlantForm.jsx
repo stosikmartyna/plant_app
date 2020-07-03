@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import firebase from 'firebase';
 import { ROUTES } from '../../helpers/routes'; 
 import { AuthContext } from '../../components/Auth/Auth';
@@ -10,8 +10,9 @@ import { withRouter } from 'react-router';
 
 const AddPlantForm = ({history}) => {
     const [formValues, setFormValues] = useState(initialFormState);
-    const [isValidated, setIsValidated] = useState(false)
-    const {user, userPlants} = useContext(AuthContext);
+    const [isValidated, setIsValidated] = useState(false);
+    const [userPlants, setUserPlants] = useState();
+    const {user} = useContext(AuthContext);
 
     const checkFormValidation = () => {
         return formValues.plantType.trim().length > 0
@@ -23,14 +24,14 @@ const AddPlantForm = ({history}) => {
     }
 
     const handlePlantTypeChange = (event) => {
-        setFormValues({...formValues, plantType: event.target.id})
-        checkFormValidation()
+        setFormValues({...formValues, plantType: event.target.id});
+        checkFormValidation();
     }
 
     const handleInputChange = (event) => {
         event.persist();
         setFormValues({...formValues, [event.target.id]: event.target.value});
-        checkFormValidation()
+        checkFormValidation();
     }
 
     const handleSubmit = () => {
@@ -46,6 +47,16 @@ const AddPlantForm = ({history}) => {
                 .catch((err) => alert(err))
             : setIsValidated(true)
     }
+
+    useEffect(() => {
+        user && firebase.database().ref(`users/${user.uid}/plants`)
+        .once('value')
+        .then(snapshot => {
+            const userPlants = snapshot.val() || [];
+            setUserPlants(userPlants);
+        })
+        .catch(err => console.warn(err.message));
+    }, [user])
 
     return (
         <>
