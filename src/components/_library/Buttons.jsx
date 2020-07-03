@@ -13,6 +13,7 @@ export const Button = (props) => {
         borderRadius: '3px',
         color: colors.arcticSnow,
         cursor: 'pointer',
+        display: props.justify === 'center' && 'block',
         fontFamily: 'Raleway',
         letterSpacing: '.1rem',
         margin: props.justify === 'center' && '0 auto',

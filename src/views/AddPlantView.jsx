@@ -5,8 +5,8 @@ import { ViewContainer } from '../components/_library/Containers';
 
 export const AddPlantView = () => {
   return (
-    <ViewContainer>
-      <Header size={1}>Dodaj roślinę</Header>
+    <ViewContainer background={'./background.jpg'}>
+      <Header size={1} marginBottom={2}>Dodaj roślinę</Header>
       <AddPlantForm />
     </ViewContainer>
   );

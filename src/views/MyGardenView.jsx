@@ -5,8 +5,8 @@ import { MyPlants } from '../components/MyPlants/MyPlants';
 
 export const MyGardenView = () => {
   return (
-    <ViewContainer>
-      <Header size={1}>Mój ogród</Header>
+    <ViewContainer background={'./background.jpg'} >
+      <Header size={1} marginBottom={2}>Mój ogród</Header>
       <MyPlants />
     </ViewContainer>
   );

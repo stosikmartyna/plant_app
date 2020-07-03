@@ -28,6 +28,7 @@ export const ViewContainer = (props) => {
         justifyContent: 'center',
         height: 'calc(100vh - 3rem)',
         marginLeft: '10rem',
+        overflow: 'auto',
         padding: '1.5rem 3rem',
     }
 
@@ -66,6 +67,22 @@ export const Row = (props) => {
     return (
         <div style={style}>
             {props.children}
+        </div>
+    )
+}
+
+export const Box = ({children, marginBottom}) => {
+    const style = {
+        backgroundColor: 'rgba(255, 255, 255, 0.644)',
+        borderRadius: '10px',
+        boxShadow: `0 1px 3px ${colors.icelandicSky}`,
+        marginBottom: `${marginBottom}rem`,
+        padding: '2rem 3rem',
+    }
+
+    return (
+        <div style={style}>
+            {children}
         </div>
     )
 }

@@ -4,7 +4,7 @@ import { Header } from '../components/_library/Headers';
 
 export const CarePlanView = () => {
   return (
-    <ViewContainer>
+    <ViewContainer background={'./background.jpg'}>
       <Header size={1}>Plan opieki nad roślinami</Header>
     </ViewContainer>
   );

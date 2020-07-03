@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import { Row, Col } from '../_library/Containers';
+import { Row, Col, Box } from '../_library/Containers';
 import { colors } from '../../helpers/colors';
 import { PlantIcon } from './MyPlants.helpers';
 import { MyPlantsInfo } from './MyPlantsInfo';
@@ -11,7 +11,7 @@ import { AuthContext } from '../Auth/Auth';
 
 export const MyPlants = () => {
     const {user} = useContext(AuthContext);
-    const [userPlants, setUserPlants] = useState();
+    const [userPlants, setUserPlants] = useState([]);
 
     useEffect(() => {
         user && firebase.database().ref(`users/${user.uid}/plants`)
@@ -23,18 +23,20 @@ export const MyPlants = () => {
         .catch(err => console.warn(err.message));
     }, [user])
 
-    return !userPlants ? null : userPlants.map((plant, index) => {
+    return userPlants.map((plant, index) => {
         return (
-            <Row key={index} marginBottom={2}>
-                <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
-                    <PlantIcon icon={`${plant.plantType}.png`} />
-                </Col>
-                <Col>
-                    <MyPlantsInfo plantName={plant.plantName}/>
-                    <MyPlantsCare plant={plant}/>
-                    <MyPlantsUserInfo plant={plant}/>
-                </Col>
-            </Row>
+            <Box marginBottom={1}>
+                <Row key={index}>
+                    <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
+                        <PlantIcon icon={`${plant.plantType}.png`} />
+                    </Col>
+                    <Col>
+                        <MyPlantsInfo plantName={plant.plantName}/>
+                        <MyPlantsCare plant={plant}/>
+                        <MyPlantsUserInfo plant={plant}/>
+                    </Col>
+                </Row>
+            </Box>
         )
     })
 }
