@@ -64,6 +64,7 @@ export const InputInline = (props) => {
     }
     
     const inputStyle = {
+        background: 'none',
         border: 'none',
         borderBottom: `1px solid ${props.error ? colors.russianRed : colors.icelandicSky}`,
         color: colors.amazonGreen,

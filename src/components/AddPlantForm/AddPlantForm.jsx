@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import { ROUTES } from '../../helpers/routes'; 
 import { AuthContext } from '../../components/Auth/Auth';
 import { Button } from '../_library/Buttons';
+import { Row, Col, Box } from '../_library/Containers';
 import { AddPlantFormType } from "./AddPlantFormType";
 import { AddPlantFormInfo } from "./AddPlantFormInfo";
 import { initialFormState } from "./AddPlantForm.helpers";
@@ -59,11 +60,15 @@ const AddPlantForm = ({history}) => {
     }, [user])
 
     return (
-        <>
-            <AddPlantFormType onPlantTypeChange={handlePlantTypeChange} plantType={formValues.plantType} isFormSubmitted={isValidated}/>
-            <AddPlantFormInfo onInputChange={handleInputChange} values={formValues} isFormSubmitted={isValidated}/>
-            <Button text={'DODAJ'} onClick={handleSubmit}/>
-        </>
+        <Row justify={'space-around'}>
+            <Col>
+                <Box>
+                    <AddPlantFormType onPlantTypeChange={handlePlantTypeChange} plantType={formValues.plantType} isFormSubmitted={isValidated}/>
+                    <AddPlantFormInfo onInputChange={handleInputChange} values={formValues} isFormSubmitted={isValidated}/>
+                    <Button text={'DODAJ'} onClick={handleSubmit} justify={'center'} />
+                </Box>
+            </Col>
+        </Row>
     );
 };
 

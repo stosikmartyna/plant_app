@@ -9,8 +9,22 @@ input:focus {
     outline: none;
 }
 
+textarea:focus {
+    outline: none;
+}
+
 button:focus {
     outline: none;
+}
+
+::-webkit-scrollbar {
+    background: rgba(255, 255, 255, 0.644);
+}
+
+::-webkit-scrollbar-thumb { 
+  background-color: #66836a; 
+  border-radius: 3px;
+  -webkit-border-radius: 5px;
 }
 
 @font-face {
