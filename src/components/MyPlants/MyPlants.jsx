@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
 import { Row, Col } from '../_library/Containers';
 import { colors } from '../../helpers/colors';
 import { PlantIcon } from './MyPlants.helpers';
@@ -9,9 +10,20 @@ import { useContext } from 'react';
 import { AuthContext } from '../Auth/Auth';
 
 export const MyPlants = () => {
-    const {userPlants} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
+    const [userPlants, setUserPlants] = useState();
 
-    return userPlants && userPlants.map((plant, index) => {
+    useEffect(() => {
+        user && firebase.database().ref(`users/${user.uid}/plants`)
+        .once('value')
+        .then(snapshot => {
+            const userPlants = snapshot.val() || [];
+            setUserPlants(userPlants);
+        })
+        .catch(err => console.warn(err.message));
+    }, [user])
+
+    return !userPlants ? null : userPlants.map((plant, index) => {
         return (
             <Row key={index} marginBottom={2}>
                 <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
@@ -25,5 +37,4 @@ export const MyPlants = () => {
             </Row>
         )
     })
-   
 }

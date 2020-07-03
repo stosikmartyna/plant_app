@@ -8,6 +8,11 @@ export const colors = {
     icelandicSky: '#808080',
     moroccanSands: '#fec37d',
     pastelRose: '#fce1da',
+    russianRed: '#de282e',
     scottishSky: '#f7f7f7',
     thaiRainforest: '#00543c',
+
+    error: '#FDECEA',
+    warning: '#FFF4E5',
+    success: '#EDF7ED',
 }

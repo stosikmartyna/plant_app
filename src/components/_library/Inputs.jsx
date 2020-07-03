@@ -13,6 +13,13 @@ const commonInputStyle = {
     marginTop: '.3rem',
 }
 
+const commonErrorMessageStyle = {
+    color: colors.russianRed,
+    display: 'block',
+    fontSize: '.8rem',
+    marginTop: '.4rem',
+}
+
 export const InputText = (props) => {
     const labelStyle = {
         color: colors.icelandicSky,
@@ -21,10 +28,16 @@ export const InputText = (props) => {
 
     const inputStyle = {
         ...commonInputStyle,
-        marginBottom: `${props.marginBottom}rem`,
+        border: props.error ? `1px solid ${colors.russianRed}` : 'none',
+        marginBottom: !props.error && `${props.marginBottom}rem`,
         minWidth: '180px',
         padding: '.5rem 1rem',
         width: '70%',
+    }
+
+    const spanStyle = {
+        ...commonErrorMessageStyle,
+        marginBottom: `${props.marginBottom}rem`,
     }
 
     return (
@@ -38,7 +51,9 @@ export const InputText = (props) => {
                 placeholder={props.placeholder}
                 style={inputStyle}
                 onChange={props.onChange}
+                autoComplete={'off'}
             />
+            {props.error && <span style={spanStyle}>To pole jest wymagane.</span>}
         </>
     )
 }
@@ -50,7 +65,7 @@ export const InputInline = (props) => {
     
     const inputStyle = {
         border: 'none',
-        borderBottom: `1px solid ${colors.icelandicSky}`,
+        borderBottom: `1px solid ${props.error ? colors.russianRed : colors.icelandicSky}`,
         color: colors.amazonGreen,
         margin: '0 .5rem',
         textAlign: 'center',
@@ -60,7 +75,14 @@ export const InputInline = (props) => {
     return (
         <Row marginBottom={props.marginBottom}>
             <span style={textStyle}>{props.textBefore}</span>
-            <input type={'text'} id={props.id} style={inputStyle} maxLength={props.maxInputLength} onChange={props.onChange}/>
+            <input 
+                type={'text'} 
+                id={props.id} 
+                style={inputStyle} 
+                maxLength={props.maxInputLength} 
+                onChange={props.onChange}
+                autoComplete={'off'}
+            />
             <span style={textStyle}>{props.textAfter}</span>
         </Row>
     )
@@ -105,6 +127,7 @@ export const InputDate = (props) => {
 
     const inputStyle = {
         ...commonInputStyle,
+        border: props.error ? `1px solid ${colors.russianRed}` : 'none',
         minWidth: '180px',
         padding: '.4rem 1rem',
         width: '70%',
@@ -115,7 +138,13 @@ export const InputDate = (props) => {
             <label htmlFor={props.id} style={labelStyle}>
                 {props.label}
             </label>
-            <input type={'date'} id={props.id} style={inputStyle} onChange={props.onChange} />
+            <input 
+                type={'date'} 
+                id={props.id} 
+                style={inputStyle} 
+                onChange={props.onChange}
+            />
+            {props.error && <span style={commonErrorMessageStyle}>To pole jest wymagane.</span>}
         </div>
     )
 }
