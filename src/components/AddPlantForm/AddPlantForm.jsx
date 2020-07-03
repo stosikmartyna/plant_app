@@ -10,7 +10,6 @@ import { withRouter } from 'react-router';
 
 const AddPlantForm = ({history}) => {
     const [formValues, setFormValues] = useState(initialFormState);
-    const [isFormValid, setIsFormValid] = useState(undefined)
     const [isValidated, setIsValidated] = useState(false)
     const {user, userPlants} = useContext(AuthContext);
 
@@ -21,8 +20,6 @@ const AddPlantForm = ({history}) => {
             && formValues.water.trim().length > 0
             && formValues.mist.trim().length > 0
             && formValues.fertilize.trim().length > 0
-                ? setIsFormValid(true)
-                : setIsFormValid(false)
     }
 
     const handlePlantTypeChange = (event) => {
@@ -40,7 +37,7 @@ const AddPlantForm = ({history}) => {
         const postUrl = `users/${user.uid}/plants`
         const postFormValues = firebase.database().ref(postUrl).set([...userPlants, formValues])
 
-        isFormValid 
+        checkFormValidation() 
             ? postFormValues
                 .then(() => {
                     alert('Dodano pomyślnie')
