@@ -41,12 +41,12 @@ export const ViewContainer = (props) => {
 
 export const Col = (props) => {
     const style = {
+        alignItems: props.align,
         borderRight: `1px solid ${props.borderRight}`,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: props.justify,
         marginRight: `${props.marginRight}rem`,
-        alignItems: props.align,
         width: `${props.size}rem`, 
     }
 
@@ -60,6 +60,7 @@ export const Col = (props) => {
 export const Row = (props) => {
     const style = {
         display: 'flex',
+        flexWrap: props.wrap ? 'wrap' : 'nowrap',
         justifyContent: props.justify,
         marginBottom: `${props.marginBottom}rem`,
     }
@@ -71,12 +72,13 @@ export const Row = (props) => {
     )
 }
 
-export const Box = ({children, marginBottom}) => {
+export const Box = ({children, marginBottom, maxWidth}) => {
     const style = {
         backgroundColor: 'rgba(255, 255, 255, 0.644)',
         borderRadius: '10px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         marginBottom: `${marginBottom}rem`,
+        maxWidth: `${maxWidth}rem`,
         padding: '2rem 3rem',
     }
 
