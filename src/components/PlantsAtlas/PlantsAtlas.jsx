@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import firebase from 'firebase';
 import { Row } from '../_library/Containers';
 import { PlantAtlasBox } from './PlantAtlasBox';
+import { useEffect } from 'react';
 
 export const PlantsAtlas = () => {
-    const arrMock = [1,2,3,4,5,6];  
+    const [plants, setPlants] = useState();
 
-    const plantMock = {
-        name: "Maranta Fascinator Tricolor",
-        image: "plantsAtlasImg/maranta_fascinator_tricolor.jpg",
-        imageAlt: "maranta fascinator tricolor",
-        description: "Odmiana Fascinator Tricolor jest jedną z ciekawszych odmian barwnych maranty. Ta roślina doniczkowa tworzy gęsto ulistnione kępy sięgające 30 cm wysokości. Jej piękne, jajowate liście mają aksamitną fakturę i przykuwającą wzrok kolorystykę. Układają się regularnie w zwartą kępę z krótkimi pędami. Spód liści jest purpurowy, zewnętrzna strona natomiast wielobarwna. Ciemna zieleń powierzchni liści przeplata się z jasną, a wzdłuż głównych nerwów biegną jaskrawo pomarańczowe, kontrastujące wzory o łukowym rysunku. Środek każdego liścia zdobiony jest dodatkowo jasnymi akcentami. Wśród liści pojawiają się drobne, białe kwiaty praktycznie przez cały rok, jednak główną ozdobę stanowią barwne liście."
-    }
+    useEffect(() => {
+        firebase.database().ref(`plants`)
+            .once('value')
+            .then(snapshot => {
+                const response = snapshot.val() || [];
+                setPlants(response);
+            })
+            .catch(err => console.warn(err.message));
+    }, [])
 
     return (
         <Row justify={'space-evenly'} wrap>
-            {arrMock.map(div => {
-                return <PlantAtlasBox plant={plantMock} />
-            })}
+            {plants?.map((plant, index) => <PlantAtlasBox key={index} plant={plant} />)}
         </Row>
     )
 }

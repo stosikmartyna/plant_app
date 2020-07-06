@@ -9,14 +9,14 @@ import { Img } from '../_library/Img';
 export const PlantAtlasBox = ({plant}) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const cutText = (text) => text.substring(0, 140) + '...';
+    const cutText = (text) => text.substring(0, 130) + '...';
 
     return (
         <Col>
             <Box width={18}>
                 <Img
-                    src={plant.image}
-                    alt={plant.imageAlt}
+                    src={plant.img}
+                    alt={plant.name}
                     marginBottom={1}
                 />
                 <Header size={3} marginBottom={1}>

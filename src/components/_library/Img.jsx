@@ -11,8 +11,10 @@ export const Img = (props) => {
     return (
         <img 
             src={props.src}
+            alt={props.alt}
             style={style} 
             width={'100%'}
+            height={'200px'}
         />
     )
 }

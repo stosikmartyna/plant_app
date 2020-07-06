@@ -25,8 +25,8 @@ export const MyPlants = () => {
 
     return userPlants.map((plant, index) => {
         return (
-            <Box marginBottom={1}>
-                <Row key={index}>
+            <Box marginBottom={1} key={index}>
+                <Row>
                     <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
                         <PlantIcon icon={`${plant.plantType}.png`} />
                     </Col>
