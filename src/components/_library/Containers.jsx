@@ -72,14 +72,14 @@ export const Row = (props) => {
     )
 }
 
-export const Box = ({children, marginBottom, maxWidth}) => {
+export const Box = ({children, marginBottom, width}) => {
     const style = {
         backgroundColor: 'rgba(255, 255, 255, 0.644)',
         borderRadius: '10px',
         boxShadow: `0 1px 3px ${colors.icelandicSky}`,
         marginBottom: `${marginBottom}rem`,
-        maxWidth: `${maxWidth}rem`,
         padding: '2rem 3rem',
+        width: `${width}rem`,
     }
 
     return (
