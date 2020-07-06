@@ -12,28 +12,41 @@ import { AuthContext } from '../Auth/Auth';
 export const MyPlants = () => {
     const {user} = useContext(AuthContext);
     const [userPlants, setUserPlants] = useState([]);
+    const [allPlants, setAllPlants] = useState();
 
     useEffect(() => {
         user && firebase.database().ref(`users/${user.uid}/plants`)
-        .once('value')
-        .then(snapshot => {
-            const userPlants = snapshot.val() || [];
-            setUserPlants(userPlants);
-        })
-        .catch(err => console.warn(err.message));
+            .once('value')
+            .then(snapshot => {
+                const response = snapshot.val() || [];
+                setUserPlants(response);
+            })
+            .catch(err => console.warn(err.message));
+
+        firebase.database().ref(`plants`)
+            .once('value')
+            .then(snapshot => {
+                const response = snapshot.val() || [];
+                setAllPlants(response);
+            })
+            .catch(err => console.warn(err.message));
     }, [user])
 
-    return userPlants.map((plant, index) => {
+    return userPlants.map((userPlant, index) => {
+        const plantDataInfo = allPlants?.find(plantData => {
+            return plantData.name === userPlant.plantName || plantData.altName.find(altName => altName === userPlant.plantName)
+        })
+        
         return (
-            <Box marginBottom={1}>
-                <Row key={index}>
+            <Box marginBottom={1} key={index}>
+                <Row>
                     <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
-                        <PlantIcon icon={`${plant.plantType}.png`} />
+                        <PlantIcon icon={`${userPlant.plantType}.png`} />
                     </Col>
                     <Col>
-                        <MyPlantsInfo plantName={plant.plantName}/>
-                        <MyPlantsCare plant={plant}/>
-                        <MyPlantsUserInfo plant={plant}/>
+                        <MyPlantsInfo plantName={userPlant.plantName} description={plantDataInfo?.description}/>
+                        <MyPlantsCare plant={userPlant}/>
+                        <MyPlantsUserInfo plant={userPlant}/>
                     </Col>
                 </Row>
             </Box>

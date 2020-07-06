@@ -7,7 +7,7 @@ import { NavbarLink } from '../_library/NavbarLink';
 import { home } from 'react-icons-kit/fa/home';
 import { leaf } from 'react-icons-kit/entypo/leaf';
 import { plus } from 'react-icons-kit/typicons/plus';
-import { calendar } from 'react-icons-kit/fa/calendar';
+import { th } from 'react-icons-kit/fa/th';
 import { userPlus } from 'react-icons-kit/fa/userPlus';
 import { userTimes } from 'react-icons-kit/fa/userTimes';
 import { NavContainer } from '../_library/Containers';
@@ -40,9 +40,9 @@ export const Navbar = () => {
                     title={'Mój ogród'}
                 />
                 <NavbarLink
-                    path={ROUTES.CARE_PLAN}
-                    icon={calendar}
-                    title={'Plan opieki'}
+                    path={ROUTES.PLANTS_ATLAS}
+                    icon={th}
+                    title={'Atlas roślin'}
                 />
             </Col>
             <Col>
