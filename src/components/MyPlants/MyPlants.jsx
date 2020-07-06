@@ -32,19 +32,21 @@ export const MyPlants = () => {
             .catch(err => console.warn(err.message));
     }, [user])
 
-    return userPlants.map((plant, index) => {
-        const plantDataInfo = allPlants?.find(plantData =>  plantData.name === plant.plantName)
+    return userPlants.map((userPlant, index) => {
+        const plantDataInfo = allPlants?.find(plantData => {
+            return plantData.name === userPlant.plantName || plantData.altName.find(altName => altName === userPlant.plantName)
+        })
         
         return (
             <Box marginBottom={1} key={index}>
                 <Row>
                     <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
-                        <PlantIcon icon={`${plant.plantType}.png`} />
+                        <PlantIcon icon={`${userPlant.plantType}.png`} />
                     </Col>
                     <Col>
-                        <MyPlantsInfo plantName={plant.plantName} description={plantDataInfo?.description}/>
-                        <MyPlantsCare plant={plant}/>
-                        <MyPlantsUserInfo plant={plant}/>
+                        <MyPlantsInfo plantName={userPlant.plantName} description={plantDataInfo?.description}/>
+                        <MyPlantsCare plant={userPlant}/>
+                        <MyPlantsUserInfo plant={userPlant}/>
                     </Col>
                 </Row>
             </Box>
