@@ -7,7 +7,7 @@ import { NavbarLink } from '../_library/NavbarLink';
 import { home } from 'react-icons-kit/fa/home';
 import { leaf } from 'react-icons-kit/entypo/leaf';
 import { plus } from 'react-icons-kit/typicons/plus';
-import { th } from 'react-icons-kit/fa/th';
+import { book } from 'react-icons-kit/fa/book';
 import { userPlus } from 'react-icons-kit/fa/userPlus';
 import { userTimes } from 'react-icons-kit/fa/userTimes';
 import { NavContainer } from '../_library/Containers';
@@ -41,7 +41,7 @@ export const Navbar = () => {
                 />
                 <NavbarLink
                     path={ROUTES.PLANTS_ATLAS}
-                    icon={th}
+                    icon={book}
                     title={'Atlas roślin'}
                 />
             </Col>
