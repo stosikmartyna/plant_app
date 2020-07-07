@@ -38,6 +38,11 @@ export const MyPlants = () => {
             return plantData.name === userPlant.plantName || plantData.altName.find(altName => altName === userPlant.plantName)
         })
         
+        const removeUserPlant = (plantToRemove) => {
+            const filteredUserPlants = userPlants.filter(plant => plant !== plantToRemove)
+            setUserPlants(filteredUserPlants)
+        }
+
         return (
             <Box marginBottom={1} key={index}>
                 <Row>
@@ -47,9 +52,8 @@ export const MyPlants = () => {
                     <Col>
                         <MyPlantsInfo plantName={userPlant.plantName} description={plantDataInfo?.description}/>
                         <MyPlantsCare plant={userPlant}/>
-                        <MyPlantsUserInfo plant={userPlant}/>
+                        <MyPlantsUserInfo plant={userPlant} removePlant={removeUserPlant}/>
                     </Col>
-                    <Button text={'Usuń'} small />
                 </Row>
             </Box>
         )
