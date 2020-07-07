@@ -8,18 +8,21 @@ export const Button = (props) => {
     const unsetHover = () => setIsHover(false);
 
     const style = {
-        backgroundColor: isHover ? colors.amazonGreenHover : colors.amazonGreen,
+        backgroundColor: props.small 
+            ? isHover ? colors.norwegianSkyHover : colors.norwegianSky
+            : isHover ? colors.amazonGreenHover : colors.amazonGreen,
         border: 'none',
         borderRadius: '3px',
-        color: colors.arcticSnow,
+        color: props.small ? colors.icelandicSky : colors.arcticSnow,
         cursor: 'pointer',
         display: props.justify === 'center' && 'block',
         fontFamily: 'Raleway',
         letterSpacing: '.1rem',
         margin: props.justify === 'center' && '0 auto',
+        marginBlockStart: props.small ? 'auto' : 'initial',
         marginBottom: `${props.marginBottom}rem`,
-        padding: '.7rem 2rem',
-        width: 'max-content'
+        padding: props.small ? '.4rem .8rem' : '.7rem 2rem',
+        width: 'max-content',
     }
 
     return (
