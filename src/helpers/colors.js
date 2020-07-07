@@ -9,6 +9,8 @@ export const colors = {
     moroccanSands: '#fec37d',
     pastelRose: '#fce1da',
     russianRed: '#de282e',
+    norwegianSky: '#ececec',
+    norwegianSkyHover: '#e6e6e6',
     scottishSky: '#f7f7f7',
     thaiRainforest: '#00543c',
 
