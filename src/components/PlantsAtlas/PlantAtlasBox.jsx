@@ -29,6 +29,7 @@ export const PlantAtlasBox = ({plant}) => {
                     onClick={() => setIsExpanded(!isExpanded)} 
                     text={isExpanded ? "Zwiń" : "Czytaj dalej"}
                     justify={'center'}
+                    small
                 />
             </Box>
             <Break lines={1.5} />
