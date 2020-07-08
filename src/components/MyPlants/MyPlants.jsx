@@ -8,7 +8,6 @@ import { MyPlantsCare } from './MyPlantsCare';
 import { MyPlantsUserInfo } from './MyPlantsUserInfo';
 import { useContext } from 'react';
 import { AuthContext } from '../Auth/Auth';
-import { Button } from '../_library/Buttons';
 
 export const MyPlants = () => {
     const {user} = useContext(AuthContext);
@@ -49,7 +48,7 @@ export const MyPlants = () => {
                     <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
                         <PlantIcon icon={`${userPlant.plantType}.png`} />
                     </Col>
-                    <Col>
+                    <Col maxSize>
                         <MyPlantsInfo plantName={userPlant.plantName} description={plantDataInfo?.description}/>
                         <MyPlantsCare plant={userPlant}/>
                         <MyPlantsUserInfo plant={userPlant} removePlant={removeUserPlant}/>

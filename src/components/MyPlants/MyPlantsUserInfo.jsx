@@ -15,7 +15,7 @@ export const MyPlantsUserInfo = ({plant, removePlant}) => {
                 {information && <Text>Dodatkowe informacje o roślinie: {information}</Text>}
             </Col>
             <Col justify={'flex-end'}>
-                <Button text={'Usuń'} onClick={() => removePlant(plant)} small />
+                <Button text={'Usuń'} onClick={() => removePlant(plant)} small/>
             </Col>
         </Row>
     )
