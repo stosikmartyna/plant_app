@@ -45,7 +45,7 @@ export const MyPlants = () => {
         return (
             <Box marginBottom={1} key={index}>
                 <Row>
-                    <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.moroccanSands}>
+                    <Col marginRight={1.5} justify={'space-evenly'} align={'center'} borderRight={colors.canadianSky}>
                         <PlantIcon icon={`${userPlant.plantType}.png`} />
                     </Col>
                     <Col maxSize>
