@@ -47,7 +47,7 @@ export const Col = (props) => {
         flexDirection: 'column',
         justifyContent: props.justify,
         marginRight: `${props.marginRight}rem`,
-        width: `${props.size}rem`, 
+        width: props.maxSize ? '100%' : `${props.size}rem`,
     }
 
     return (
