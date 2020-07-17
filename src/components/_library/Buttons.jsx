@@ -19,7 +19,6 @@ export const Button = (props) => {
         fontFamily: 'Raleway',
         letterSpacing: '.1rem',
         margin: props.justify === 'center' && '0 auto',
-        marginBlockStart: props.small ? 'auto' : 'initial',
         marginBottom: `${props.marginBottom}rem`,
         padding: props.small ? '.4rem .8rem' : '.7rem 2rem',
         width: 'max-content',

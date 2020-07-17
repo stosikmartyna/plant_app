@@ -2,6 +2,7 @@ import React from 'react';
 
 export const PlantIcon = (props) => {
     const imgStyle = {
+        paddingRight: '.4rem',
         width: '160px',
     }
     
