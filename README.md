@@ -1,4 +1,34 @@
+# PlantCare 
+### Take care of your plants
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Contributors:
+- [Martyna Stosik](https://github.com/stosikmartyna)
+- [Mateusz Iwańczuk](https://github.com/mateusziwanczuk)
+
+## About project
+
+The main goal of this project is to learn JavaScript, React library and GIT basics.
+
+## Application views:
+
+> ### Atlas Roślin (eng. Plants Atlas)
+> On this app view we display list of all the plants included in our remote database.  
+> ![screenshots](/readme_img/1.png?raw=true "Screenshot")
+
+> ### Dodaj Roślinę (eng. Add Plant)
+> Add your plant to your virtual garden. Provided data will be sent and stored in the database.   
+> ![screenshots](/readme_img/2.png?raw=true "Screenshot")
+
+> ### Mój Ogród (eng. My Garden)
+> Here you can see all the plants which you added by "Dodaj Roślinę" form. Furthermore, if we find your plant name in our database, we will display in this section some information about your green friend also :)    
+> ![screenshots](/readme_img/3.png?raw=true "Screenshot")
+
+> ### Załóż konto! (eng. Sign Up!)
+> Do not forget to create your personal account in PlantCare app!
+> ![screenshots](/readme_img/4.png?raw=true "Screenshot")
+
 
 ## Available Scripts
 
