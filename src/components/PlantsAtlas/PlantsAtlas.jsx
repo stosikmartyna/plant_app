@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
-import firebase from 'firebase';
+import React from 'react';
+import { usePlants } from "../../hooks/usePlants";
 import { Row } from '../_library/Containers';
 import { PlantAtlasBox } from './PlantAtlasBox';
 import { useEffect } from 'react';
 
 export const PlantsAtlas = () => {
-    const [plants, setPlants] = useState();
+    const {allPlants, getAllPlants} = usePlants();
 
     useEffect(() => {
-        firebase.database().ref(`plants`)
-            .once('value')
-            .then(snapshot => {
-                const response = snapshot.val() || [];
-                setPlants(response);
-            })
-            .catch(err => console.warn(err.message));
-    }, [])
+        getAllPlants();
+    }, [getAllPlants])
 
     return (
         <Row justify={'space-evenly'} wrap>
-            {plants?.map((plant, index) => <PlantAtlasBox key={index} plant={plant} />)}
+            {allPlants?.map((plant, index) => <PlantAtlasBox key={index} plant={plant} />)}
         </Row>
     )
 }

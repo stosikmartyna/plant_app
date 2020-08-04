@@ -1,19 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import firebase from 'firebase';
-import { ROUTES } from '../../helpers/routes'; 
-import { AuthContext } from '../../components/Auth/Auth';
+import React, { useState, useEffect } from "react";
 import { Button } from '../_library/Buttons';
 import { Row, Col, Box } from '../_library/Containers';
 import { AddPlantFormType } from "./AddPlantFormType";
 import { AddPlantFormInfo } from "./AddPlantFormInfo";
 import { initialFormState } from "./AddPlantForm.helpers";
 import { withRouter } from 'react-router';
+import { usePlants } from "../../hooks/usePlants";
 
 const AddPlantForm = ({history}) => {
     const [formValues, setFormValues] = useState(initialFormState);
     const [isValidated, setIsValidated] = useState(false);
-    const [userPlants, setUserPlants] = useState();
-    const {user} = useContext(AuthContext);
+    const {userPlants, getUserPlants, postFormValues} = usePlants();
 
     const checkFormValidation = () => {
         return formValues.plantType.trim().length > 0
@@ -36,28 +33,14 @@ const AddPlantForm = ({history}) => {
     }
 
     const handleSubmit = () => {
-        const postUrl = `users/${user.uid}/plants`
-        const postFormValues = firebase.database().ref(postUrl).set([...userPlants, formValues])
-
         checkFormValidation() 
-            ? postFormValues
-                .then(() => {
-                    alert('Dodano pomyślnie')
-                    history.push(ROUTES.MY_GARDEN)
-                })
-                .catch((err) => alert(err))
+            ? postFormValues([...userPlants, formValues], history)
             : setIsValidated(true)
     }
 
     useEffect(() => {
-        user && firebase.database().ref(`users/${user.uid}/plants`)
-        .once('value')
-        .then(snapshot => {
-            const userPlants = snapshot.val() || [];
-            setUserPlants(userPlants);
-        })
-        .catch(err => console.warn(err.message));
-    }, [user])
+        getUserPlants()
+    }, [getUserPlants])
 
     return (
         <Row justify={'space-around'}>
